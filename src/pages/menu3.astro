@@ -1,0 +1,61 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import MenuCard from "../components/MenuCard.astro";
+
+const platosfuertes3 = [
+    {
+        name: "Parrillada de Pulpo",
+        desc: "Pulpo al grill con la receta de la casa acompañado de verduras",
+        price: "$500",
+        image: "/images/parrilladapulpo.webp",
+    },
+    {
+        name: "Pasta de camarones + pure de papa",
+        desc: "Pasta de 150g de camaron + 50g de pure de papa",
+        price: "$300",
+    },
+    {
+        name: "Pastel de 3 Leches",
+        desc: "Delicioso Pastel de 3 leches",
+        image: "/images/3leches.webp",
+    },
+];
+---
+
+<BaseLayout title="Menú Tradicional | El Traspatio">
+    <section class="relative py-16 bg-cover bg-center bg-no-repeat">
+        <!-- Overlay oscuro con blur -->
+        <div class="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+
+        <!-- Contenido -->
+        <div class="relative z-10 text-center px-6 gruop">
+            <h1 class="text-4xl font-bold text-[#84BF49] mb-4 drop-shadow-md">
+                Paquete Premium Deluxe
+            </h1>
+            <p class="text-[#F8E9D2] mb-10 max-w-2xl mx-auto">
+                Una experiencia exclusiva con parrillada de pulpo, espárragos,
+                puré de papa y pasta de camarones. Sabor y presentación de otro
+                nivel.
+            </p>
+
+            <!-- Contenedor de las cards -->
+            <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                {
+                    platosfuertes3.map((item) => (
+                        <div class="border border-[#D4AF37]/40 rounded-2xl p-6 bg-black/40 backdrop-blur-sm hover:bg-black/60 hover:scale-105 hover:shadow-[0_0_25px_#D4AF37]/20 transition-all duration-500">
+                            <MenuCard {...item} />
+                        </div>
+                    ))
+                }
+            </div>
+
+            <!-- Botón de reservación -->
+            <a
+                href="/reservaciones"
+                class="mt-12 inline-block bg-[#A6342A] hover:bg-[#D4AF37] text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 shadow-lg hover:shadow-[#D4AF37]/30"
+            >
+                Reservar este menú
+            </a>
+        </div>
+    </section>
+</BaseLayout>

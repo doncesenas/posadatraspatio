@@ -1,0 +1,33 @@
+---
+// src/layouts/BaseLayout.astro
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+const { title = "El Traspatio Mar & Grill" } = Astro.props;
+---
+
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{title}</title>
+        <link rel="stylesheet" href="/src/styles/global.css" />
+    </head>
+    <body
+        class="relative bg-[url('/images/bck2.webp')] bg-cover bg-center bg-fixed bg-no-repeat text-gray-200"
+    >
+        <!-- Capa degradada sobre el fondo -->
+        <div
+            class="absolute inset-0 bg-linear-to-b from-black/80 via-black/50 to-black/70 -z-10"
+        >
+        </div>
+
+        <!-- Contenido principal -->
+        <Navbar />
+
+        <main class="min-h-[80vh] relative z-10">
+            <slot />
+        </main>
+
+        <Footer />
+    </body>
+</html>

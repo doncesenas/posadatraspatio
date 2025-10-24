@@ -1,0 +1,148 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import MenuCard from "../components/MenuCard.astro";
+import { imageConfig } from "astro:assets";
+
+const entradas2 = [
+    {
+        name: "Guacamole con carnitas",
+        desc: "Guacamole de la casa acompañado de carnitas",
+        price: "$140",
+        image: "/images/carnitas.webp",
+    },
+    {
+        name: "Guacamole con Costillas tajín",
+        desc: "El gucamole de la casa acompañado de Costillas al tajín",
+        price: "$120",
+        image: "/images/costillas.webp",
+    },
+    {
+        name: "Guacamole con pico de gallo tradicional",
+        desc: "El gucamole tradicional",
+        price: "$120",
+        image: "/images/guacamole.webp",
+    },
+];
+
+const platosFuertes2 = [
+    {
+        name: "Parrillada mixta",
+        desc: "Sirloin, arrachera y chorizo con guarniciones.",
+        price: "$400",
+        image: "/images/parrilladamixta.webp",
+    },
+    {
+        name: "Tacos de Carne Asada (Corte a Elegir)",
+        desc: "Tacos estilos Gober.",
+        price: "$180",
+        image: "/images/tacodiezmillo.webp",
+    },
+    {
+        name: "Tacos Gober",
+        desc: "Tacos estilos Gober.",
+        price: "$180",
+        image: "/images/tacogober.webp",
+    },
+];
+
+const postres2 = [
+    {
+        name: "Cheescake de frutos rojos",
+        desc: "Cheescake de la casa",
+        price: "$90",
+        image: "/images/cheescake.webp",
+    },
+
+    {
+        name: "Pastel de tres leches",
+        desc: "Deliciosa Rebanada de pastel de 3 leches",
+        price: "$90",
+        image: "/images/3leches.webp",
+    },
+];
+---
+
+<BaseLayout title="Paquete Premium | El Traspatio">
+    <section class="relative py-16 bg-cover bg-center bg-no-repeat">
+        <!-- Fondo degradado oscuro -->
+        <div
+            class="absolute inset-0 bg-linear-to-b from-black/70 via-black/50 to-black/70"
+        >
+        </div>
+
+        <div class="relative z-10 text-center px-6">
+            <h1 class="text-4xl font-bold text-[#84BF49] mb-4 drop-shadow-md">
+                Paquete Empresarial de Lujo
+            </h1>
+            <p class="text-[#F8E9D2] mb-10 max-w-2xl mx-auto">
+                La experiencia completa que necesitas para disfrutar las
+                entradas y los platos fuertes.
+            </p>
+
+            <!-- 🥗 ENTRADAS -->
+            <div class="max-w-5xl mx-auto mb-16">
+                <h2
+                    class="text-2xl font-semibold text-[#D4AF37] mb-6 border-b border-[#D4AF37]/40 inline-block pb-2"
+                >
+                    Entradas (elige 1)
+                </h2>
+
+                <div class="grid md:grid-cols-2 gap-6 mt-6">
+                    {
+                        entradas2.map((item) => (
+                            <div class="border border-[#D4AF37]/40 rounded-2xl p-6 bg-black/40 hover:bg-black/60 hover:scale-105 hover:shadow-[0_0_25px_#D4AF37]/20 transition-all duration-500">
+                                <MenuCard {...item} />
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
+
+            <!-- 🍖 PLATOS FUERTES -->
+            <div class="max-w-5xl mx-auto">
+                <h2
+                    class="text-2xl font-semibold text-[#D4AF37] mb-6 border-b border-[#D4AF37]/40 inline-block pb-2"
+                >
+                    Platos Fuertes
+                </h2>
+
+                <div class="grid md:grid-cols-3 gap-6 mt-6">
+                    {
+                        platosFuertes2.map((item) => (
+                            <div class="border border-[#D4AF37]/40 rounded-2xl p-6 bg-black/40 hover:bg-black/60 hover:scale-105 hover:shadow-[0_0_25px_#D4AF37]/20 transition-all duration-500">
+                                <MenuCard {...item} />
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
+
+            <!-- 🍖 POSTRES -->
+            <div class="max-w-5xl mx-auto">
+                <h2
+                    class="text-2xl font-semibold text-[#D4AF37] mb-6 border-b border-[#D4AF37]/40 inline-block pb-2 m-5"
+                >
+                    Postres a elegir
+                </h2>
+
+                <div class="grid md:grid-cols-3 gap-6 mt-6">
+                    {
+                        postres2.map((item) => (
+                            <div class="border border-[#D4AF37]/40 rounded-2xl p-6 bg-black/40 hover:bg-black/60 hover:scale-105 hover:shadow-[0_0_25px_#D4AF37]/20 transition-all duration-500">
+                                <MenuCard {...item} />
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
+
+            <!-- 🔘 BOTÓN DE RESERVACIÓN -->
+            <a
+                href="/reservaciones"
+                class="mt-16 inline-block bg-[#A6342A] hover:bg-[#D4AF37] text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 shadow-lg hover:shadow-[#D4AF37]/30"
+            >
+                Reservar este menú
+            </a>
+        </div>
+    </section>
+</BaseLayout>

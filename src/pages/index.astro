@@ -1,0 +1,114 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+---
+
+<BaseLayout title="Posadas en El Traspatio Mar & Grill">
+	<Hero />
+
+	<section class="relative py-16 bg-cover bg-center bg-no-repeat">
+		<!-- Capa general -->
+		<div
+			class="absolute inset-0 bg-black/55 transition-all duration-500 group-hover:bg-black/70"
+		>
+		</div>
+
+		<!-- Contenedor general con grupo -->
+		<div class="relative z-10 text-center px-4 group">
+			<h2 class="text-3xl text-[#84BF49] font-semibold mb-6">
+				Elige el paquete para tu posada
+			</h2>
+			<p class="mb-10 text-[#F8E9D2]">
+				Tres opciones pensadas para que tus posadas sean inolvidables
+			</p>
+
+			<div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+				<!-- CARD -->
+				<a
+					href="/menu1"
+					class="border border-[#D4AF37]/40 rounded-2xl p-6 bg-black/40 backdrop-blur-sm hover:bg-black/70 hover:scale-105 hover:shadow-[0_0_25px_#D4AF37]/20 transition-all duration-500"
+				>
+					<img
+						src="/images/parrilladasirloin.webp"
+						alt="Menú 1"
+						class="rounded-lg mb-4"
+					/>
+					<h3 class="text-xl font-bold text-[#D4AF37]">
+						Paquete Premium
+					</h3>
+					<h4 class="text-l text-[#dacfae]">
+						( desde $580 por persona)
+					</h4>
+					<p class="text-gray-200 mt-2">
+						Una experiencia completa de sabor con entradas
+						irresistibles y platos fuertes de primera. Disfruta una
+						parrillada mixta o pozole de camarón, con postres
+						gourmet y refil de bebidas.
+					</p>
+				</a>
+
+				<!-- CARD -->
+				<a
+					href="/menu2"
+					class="border border-[#D4AF37]/40 rounded-2xl p-6 bg-black/40 backdrop-blur-sm hover:bg-black/70 hover:scale-105 hover:shadow-[0_0_25px_#D4AF37]/20 transition-all duration-500"
+				>
+					<img
+						src="/images/parrilladapulpo.webp"
+						alt="Menú 2"
+						class="rounded-lg mb-4"
+					/>
+					<h3 class="text-xl font-bold text-[#D4AF37]">
+						Paquete Empresarial de Lujo
+					</h3>
+					<h4 class="text-l text-[#dacfae]">
+						( desde $650 por persona)
+					</h4>
+					<p class="text-gray-200 mt-2">
+						Ideal para empresas que buscan impactar. Un buffet
+						servido en tres tiempos con guacamoles al centro,
+						opciones al gusto y postres elegantes.
+					</p>
+				</a>
+
+				<!-- CARD -->
+				<a
+					href="/menu3"
+					class="border border-[#D4AF37]/40 rounded-2xl p-6 bg-black/40 backdrop-blur-sm hover:bg-black/70 hover:scale-105 hover:shadow-[0_0_25px_#D4AF37]/20 transition-all duration-500"
+				>
+					<img
+						src="/images/parrilladamixta.webp"
+						alt="Menú 3"
+						class="rounded-lg mb-4"
+					/>
+					<h3 class="text-xl font-bold text-[#D4AF37]">
+						Paquete Premium de Lujo
+					</h3>
+					<h4 class="text-l text-[#dacfae]">
+						( desde $850 por persona)
+					</h4>
+					<p class="text-gray-200 mt-2">
+						Una experiencia exclusiva con parrillada de pulpo,
+						espárragos, puré de papa y pasta de camarones. Sabor y
+						presentación de otro nivel.
+					</p>
+				</a>
+
+				<!-- CARD extra -->
+				<a
+					href="https://eltraspatio.netlify.app/menu/"
+					class="border border-[#D4AF37]/40 rounded-2xl p-6 bg-black/40 backdrop-blur-sm hover:bg-black/70 hover:scale-105 hover:shadow-[0_0_25px_#D4AF37]/20 transition-all duration-500 md:col-span-3 md:justify-self-center max-w-sm w-full text-center"
+				>
+					<img
+						src="/images/chicharrondepescado.webp"
+						alt="Menú 4"
+						class="rounded-lg mb-4 mx-auto"
+					/>
+					<h3 class="text-xl font-bold text-[#D4AF37]">
+						Arma tu paquete
+					</h3>
+					<p class="text-gray-200 mt-2">Tu elijes los platillos</p>
+				</a>
+			</div>
+		</div>
+	</section>
+</BaseLayout>

@@ -1,0 +1,107 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Reservaciones | El Traspatio Mar & Grill">
+    <section class="relative py-20 px-6 text-center">
+        <div
+            class="max-w-lg mx-auto bg-black/40 backdrop-blur-sm border border-[#D4AF37]/30 rounded-2xl p-8 shadow-lg"
+        >
+            <h1 class="text-3xl font-bold text-[#84BF49] mb-4">
+                Haz tu reservación
+            </h1>
+            <p class="text-[#F8E9D2] mb-8">
+                Completa el siguiente formulario y nos pondremos en contacto
+                contigo para confirmar tu reservación.
+            </p>
+
+            <!-- AGREGA name="" a cada campo -->
+            <form id="formReservacion" class="flex flex-col gap-4 text-left">
+                <input
+                    type="text"
+                    name="nombre"
+                    placeholder="Nombre completo"
+                    class="bg-transparent border border-[#D4AF37]/40 text-white placeholder-gray-400 p-3 rounded focus:border-[#D4AF37] focus:outline-none transition"
+                    required
+                />
+                <input
+                    type="tel"
+                    name="telefono"
+                    placeholder="Teléfono"
+                    class="bg-transparent border border-[#D4AF37]/40 text-white placeholder-gray-400 p-3 rounded focus:border-[#D4AF37] focus:outline-none transition"
+                    required
+                />
+                <input
+                    type="email"
+                    name="correo"
+                    placeholder="Correo electrónico"
+                    class="bg-transparent border border-[#D4AF37]/40 text-white placeholder-gray-400 p-3 rounded focus:border-[#D4AF37] focus:outline-none transition"
+                    required
+                />
+
+                <select
+                    name="menu"
+                    class="bg-transparent border border-[#D4AF37]/40 text-white placeholder-gray-400 p-3 rounded focus:border-[#D4AF37] focus:outline-none transition"
+                    required
+                >
+                    <option class="text-black" value=""
+                        >Selecciona un menú</option
+                    >
+                    <option class="text-black">Paquete Premium</option>
+                    <option class="text-black"
+                        >Paquete Empresarial de Lujo</option
+                    >
+                    <option class="text-black">Paquete Premium de Lujo</option>
+                    <option class="text-black">Arma tu paquete</option>
+                </select>
+
+                <input
+                    type="date"
+                    name="fecha"
+                    class="bg-transparent border border-[#D4AF37]/40 text-white placeholder-gray-400 p-3 rounded focus:border-[#D4AF37] focus:outline-none transition"
+                    required
+                />
+
+                <button
+                    type="submit"
+                    class="mt-4 bg-[#A6342A] text-white py-3 rounded-lg hover:bg-[#D4AF37] hover:text-black font-semibold transition-all duration-300 shadow-md hover:shadow-[#D4AF37]/40"
+                >
+                    Enviar reservación
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Coloca este <script> al final del archivo -->
+    <script is:inline>
+        document.addEventListener("DOMContentLoaded", () => {
+            const form = document.getElementById("formReservacion");
+            if (!(form instanceof HTMLFormElement)) return; // ✅ verifica que sí sea un formulario
+
+            form.addEventListener("submit", (e) => {
+                e.preventDefault();
+
+                const fd = new FormData(form);
+                const nombre = String(fd.get("nombre") ?? "");
+                const telefono = String(fd.get("telefono") ?? "");
+                const correo = String(fd.get("correo") ?? "");
+                const menu = String(fd.get("menu") ?? "");
+                const fecha = String(fd.get("fecha") ?? "");
+
+                const mensaje =
+                    `📋 *Nueva reservación de El Traspatio Mar & Grill*\n\n` +
+                    `👤 *Nombre:* ${nombre}\n` +
+                    `📞 *Teléfono:* ${telefono}\n` +
+                    `📧 *Correo:* ${correo}\n` +
+                    `🍽 *Menú:* ${menu}\n` +
+                    `📅 *Fecha:* ${fecha}`;
+
+                // Cambia este número
+                const telefonoWhatsApp = "528115522724";
+
+                const url = `https://wa.me/${telefonoWhatsApp}?text=${encodeURIComponent(mensaje)}`;
+                window.open(url, "_blank");
+            });
+        });
+    </script>
+</BaseLayout>
