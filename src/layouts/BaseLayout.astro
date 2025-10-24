@@ -11,20 +11,22 @@ const { title = "El Traspatio Mar & Grill" } = Astro.props;
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>{title}</title>
-        <link rel="stylesheet" href="/src/styles/global.css" />
     </head>
-    <body
-        class="relative bg-[url('/images/bck2.webp')] bg-cover bg-center bg-fixed bg-no-repeat text-gray-200"
-    >
-        <!-- Capa degradada sobre el fondo -->
+
+    <body class="text-gray-200 relative overflow-x-hidden">
         <div
-            class="absolute inset-0 bg-linear-to-b from-black/80 via-black/50 to-black/70 -z-10"
+            class="fixed top-0 left-0 w-full h-full bg-[url('/images/bck2.webp')] bg-cover bg-center -z-20"
+        >
+        </div>
+
+        <div
+            class="fixed top-0 left-0 w-full h-full bg-linear-to-b from-black/80 via-black/50 to-black/70 -z-10"
         >
         </div>
 
         <Navbar />
 
-        <main class="min-h-[80vh] relative z-10">
+        <main class="relative z-0 min-h-[80vh]">
             <slot />
         </main>
 
