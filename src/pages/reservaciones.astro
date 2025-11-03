@@ -16,7 +16,6 @@ import "../styles/global.css";
                 contigo para confirmar tu reservación.
             </p>
 
-            <!-- AGREGA name="" a cada campo -->
             <form id="formReservacion" class="flex flex-col gap-4 text-left">
                 <input
                     type="text"
@@ -73,11 +72,10 @@ import "../styles/global.css";
         </div>
     </section>
 
-    <!-- Coloca este <script> al final del archivo -->
     <script is:inline>
         document.addEventListener("DOMContentLoaded", () => {
             const form = document.getElementById("formReservacion");
-            if (!(form instanceof HTMLFormElement)) return; // ✅ verifica que sí sea un formulario
+            if (!(form instanceof HTMLFormElement)) return;
 
             form.addEventListener("submit", (e) => {
                 e.preventDefault();
